@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Chatbot</title>
+</head>
+
+<body>
+    <div class="chat-container">
+        <div class="chat-box" id="chat-box">
+            <div class="chat-msg bot">Hello! How can I assist you today?</div>
+        </div>
+        <form id="user-input" class="user-input" onsubmit="return sendMessage()">
+            <input type="text" id="user_msg" name="user_input" placeholder="Type your message here...">
+            <button type="submit">Send</button>
+        </form>
+    </div>
+
+    <script>
+        function sendMessage() {
+            const userMsg = document.getElementById('user_msg').value;
+            if (userMsg.trim() === '') return false;
+            
+            const chatBox = document.getElementById('chat-box');
+            const userMsgHtml = `<div class="chat-msg user">${userMsg}</div>`;
+            chatBox.innerHTML += userMsgHtml;
+
+            fetch('/predict', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: `user_input=${encodeURIComponent(userMsg)}`
+            })
+            .then(response => response.json())
+            .then(data => {
+                const botMsgHtml = `<div class="chat-msg bot">${data.response}</div>`;
+                chatBox.innerHTML += botMsgHtml;
+                document.getElementById('user_msg').value = '';
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                const errorMsgHtml = `<div class="chat-msg bot">Sorry, something went wrong.</div>`;
+                chatBox.innerHTML += errorMsgHtml;
+            });
+
+            return false;
+        }
+    </script>
+</body>
+
+</html>

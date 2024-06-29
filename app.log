@@ -1,0 +1,17 @@
+2024-06-29 05:41:25,795 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2024-06-29 05:41:25,797 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2024-06-29 05:41:25,801 - werkzeug - INFO -  * Restarting with watchdog (windowsapi)
+2024-06-29 05:41:26,962 - werkzeug - WARNING -  * Debugger is active!
+2024-06-29 05:41:26,964 - werkzeug - INFO -  * Debugger PIN: 454-210-885
+2024-06-29 05:41:31,522 - __main__ - INFO - Rendering home page
+2024-06-29 05:41:31,534 - werkzeug - INFO - 127.0.0.1 - - [29/Jun/2024 05:41:31] "GET / HTTP/1.1" 200 -
+2024-06-29 05:41:31,602 - werkzeug - INFO - 127.0.0.1 - - [29/Jun/2024 05:41:31] "[36mGET /static/styles.css HTTP/1.1[0m" 304 -
+2024-06-29 05:41:35,462 - __main__ - INFO - Received input: I don't have an online account, what do I have to do to register?
+2024-06-29 05:41:36,277 - __main__ - INFO - Processed input: dont online account register
+2024-06-29 05:41:36,285 - __main__ - INFO - Prediction: To create a new account, go to the sign-up page and fill in your details.
+2024-06-29 05:41:36,285 - werkzeug - INFO - 127.0.0.1 - - [29/Jun/2024 05:41:36] "POST /predict HTTP/1.1" 200 -
+2024-06-29 05:41:40,273 - __main__ - INFO - Received input: my phone number is changed , so how can i make that change in my profile
+2024-06-29 05:41:40,275 - __main__ - INFO - Processed input: phone number changed make change profile
+2024-06-29 05:41:40,285 - __main__ - INFO - Prediction: To update your account details, go to your profile and select 'Edit Profile'.
+2024-06-29 05:41:40,285 - werkzeug - INFO - 127.0.0.1 - - [29/Jun/2024 05:41:40] "POST /predict HTTP/1.1" 200 -
